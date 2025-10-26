@@ -8,8 +8,18 @@ public class Car {
     private int position;
 
     public Car(String name){
+        validateName(name);
         this.name = name.trim();
         this.position = 0;
+    }
+
+    private void validateName(String name){
+        if (name == null || name.trim().isEmpty()){
+            throw new IllegalArgumentException("공백은 자동차 이름으로 설정할 수 없습니다.");
+        }
+        if (name.trim().length() > MAX_CAR_NAME) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만로만 설정 가능합니다.");
+        }
     }
 
     public String getName(){
