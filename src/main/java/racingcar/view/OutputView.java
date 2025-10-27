@@ -1,0 +1,24 @@
+package racingcar.view;
+
+import java.util.List;
+import racingcar.model.Car;
+
+public class OutputView {
+    public void displayPlayResultHeader() {
+        System.out.println("실행 결과");
+    }
+
+    public void displayPlayResult(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + formatPlay(car.getPosition()));
+        }
+    }
+
+    public String formatPlay(int position) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            sb.append("-");
+        }
+        return sb.toString();
+    }
+}
