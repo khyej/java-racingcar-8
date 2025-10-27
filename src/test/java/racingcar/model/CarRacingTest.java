@@ -1,6 +1,7 @@
 package racingcar.model;
 
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.tuple;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,5 +27,29 @@ public class CarRacingTest {
                         tuple("test2", 0),
                         tuple("test3", 0)
                 );
+    }
+
+    @Test
+    @DisplayName("단독 우승자 선정")
+    void getWinnerTest(){
+        CarRacing carRacing = new CarRacing(List.of("test1", "test2", "test3"));
+
+        assertRandomNumberInRangeTest(
+                ()-> carRacing.play(),
+                4, 1, 1
+        );
+        assertThat(carRacing.getWinner()).containsExactly("test1");
+    }
+
+    @Test
+    @DisplayName("공동 우승자 선정")
+    void getCowinnerTest(){
+        CarRacing carRacing = new CarRacing(List.of("test1", "test2", "test3"));
+
+        assertRandomNumberInRangeTest(
+                ()-> carRacing.play(),
+                4, 4, 1
+        );
+        assertThat(carRacing.getWinner()).containsExactly("test1", "test2");
     }
 }
