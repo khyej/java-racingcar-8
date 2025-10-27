@@ -21,4 +21,19 @@ public class CarRacing {
     public List<Car> getCars() {
         return cars;
     }
+
+    public List<String> getWinner() {
+        int maxPosition = getMaxPosition();
+        return cars.stream()
+                .filter(car -> car.isMaxPosition(maxPosition))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    public int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
 }
