@@ -10,6 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class CarTest {
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+
     @Test
     @DisplayName("CarTest : 자동차 객체 생성")
     void createCarTest() {
@@ -38,7 +41,7 @@ public class CarTest {
         Car testCar = new Car("test");
         assertRandomNumberInRangeTest(
                 () -> testCar.move(),
-                4
+                MOVING_FORWARD // 4
         );
         assertThat(testCar.getPosition()).isEqualTo(1);
     }
@@ -49,7 +52,7 @@ public class CarTest {
         Car testCar = new Car("test");
         assertRandomNumberInRangeTest(
                 () -> testCar.move(),
-                3
+                STOP // 3
         );
         assertThat(testCar.getPosition()).isEqualTo(0);
     }

@@ -9,6 +9,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CarRacingTest {
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+
     @Test
     @DisplayName("CarRacingTest : 자동차 경주 객체 생성")
     void createCarRacingTest() {
@@ -34,7 +37,7 @@ public class CarRacingTest {
 
         assertRandomNumberInRangeTest(
                 () -> carRacing.play(),
-                4, 1, 1
+                MOVING_FORWARD, STOP, STOP // 4, 3, 3
         );
         assertThat(carRacing.getWinner()).containsExactly("test1");
     }
@@ -46,7 +49,7 @@ public class CarRacingTest {
 
         assertRandomNumberInRangeTest(
                 () -> carRacing.play(),
-                4, 4, 1
+                MOVING_FORWARD, MOVING_FORWARD, STOP // 4, 4, 3
         );
         assertThat(carRacing.getWinner()).containsExactly("test1", "test2");
     }
