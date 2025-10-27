@@ -15,6 +15,10 @@ public class Validator {
         validateInputDuplicate(carName);
     }
 
+    public static void validatePlayCount(String playCount){
+        int count = validateInputIsNum(playCount);
+        validateInputIsPositive(count);
+    }
 
     private static void validateInputEmpty(String input){
         if (input == null || input.trim().isEmpty()){
@@ -37,5 +41,17 @@ public class Validator {
         }
     }
 
+    private static int validateInputIsNum(String input){
+        try{
+            return Integer.parseInt(input);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException("시도할 횟수는 숫자로만 입력이 가능합니다.");
+        }
+    }
 
+    private static void validateInputIsPositive(int input){
+        if( input <= 0){
+            throw new IllegalArgumentException("시도 횟수는 1 이상의 숫자로 입력해주세요.");
+        }
+    }
 }
