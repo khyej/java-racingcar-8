@@ -24,8 +24,8 @@ public class OutputView {
         return sb.toString();
     }
 
-    public void displayWinner(List<String> winner) {
-        String winnerName = String.join(", ", winner);
+    public void displayWinner(List<String> winners) {
+        String winnerName = String.join(", ", winners);
         System.out.println("최종 우승자 : " + winnerName);
     }
 

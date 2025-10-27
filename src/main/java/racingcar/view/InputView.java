@@ -9,20 +9,20 @@ import racingcar.utils.Validator;
 public class InputView {
     public List<String> getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNames = Console.readLine();
+        String carNameInput = Console.readLine();
 
-        Validator.validateCarName(carNames);
-        return Arrays.stream(carNames.split(","))
+        Validator.validateCarName(carNameInput);
+        return Arrays.stream(carNameInput.split(","))
                 .map(String::trim)
                 .collect(Collectors.toList());
     }
 
     public int getPlayCount() {
         System.out.println("시도할 횟수는 몇 회인가요?");
-        String playCount = Console.readLine();
+        String playCountInput = Console.readLine();
 
-        Validator.validatePlayCount(playCount);
+        Validator.validatePlayCount(playCountInput);
 
-        return Integer.parseInt(playCount);
+        return Integer.parseInt(playCountInput);
     }
 }

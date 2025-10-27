@@ -6,19 +6,20 @@ import java.util.List;
 import java.util.Set;
 
 public class Validator {
-    public static void validateCarName(String carNames) {
-        validateInputEmpty(carNames);
+    public static void validateCarName(String carNameInput) {
+        validateInputEmpty(carNameInput);
 
-        List<String> carName = Arrays.asList(carNames.split(","));
+        List<String> carNames = Arrays.asList(carNameInput.split(","));
 
-        validateListInputEmpty(carName);
-        validateInputDuplicate(carName);
+        validateListInputEmpty(carNames);
+        validateInputDuplicate(carNames);
     }
 
-    public static void validatePlayCount(String playCount) {
-        int count = validateInputIsNum(playCount);
+    public static void validatePlayCount(String playCountInput) {
+        int count = validateInputIsNum(playCountInput);
         validateInputIsPositive(count);
     }
+
 
     private static void validateInputEmpty(String input) {
         if (input == null || input.trim().isEmpty()) {

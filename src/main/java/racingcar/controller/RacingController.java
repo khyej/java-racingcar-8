@@ -28,7 +28,7 @@ public class RacingController {
             outputView.displayPlayResult(carRacing.getCars());
         }
 
-        List<String> winner = carRacing.getWinner();
-        outputView.displayWinner(winner);
+        List<String> winners = carRacing.getWinner();
+        outputView.displayWinner(winners);
     }
 }
