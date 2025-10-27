@@ -31,11 +31,11 @@ public class CarRacingTest {
 
     @Test
     @DisplayName("단독 우승자 선정")
-    void getWinnerTest(){
+    void getWinnerTest() {
         CarRacing carRacing = new CarRacing(List.of("test1", "test2", "test3"));
 
         assertRandomNumberInRangeTest(
-                ()-> carRacing.play(),
+                () -> carRacing.play(),
                 4, 1, 1
         );
         assertThat(carRacing.getWinner()).containsExactly("test1");
@@ -43,11 +43,11 @@ public class CarRacingTest {
 
     @Test
     @DisplayName("공동 우승자 선정")
-    void getCowinnerTest(){
+    void getCowinnerTest() {
         CarRacing carRacing = new CarRacing(List.of("test1", "test2", "test3"));
 
         assertRandomNumberInRangeTest(
-                ()-> carRacing.play(),
+                () -> carRacing.play(),
                 4, 4, 1
         );
         assertThat(carRacing.getWinner()).containsExactly("test1", "test2");

@@ -23,7 +23,7 @@ public class RacingController {
 
         outputView.displayPlayResultHeader();
 
-        for(int i = 0; i < playCount; i++){
+        for (int i = 0; i < playCount; i++) {
             carRacing.play();
             outputView.displayPlayResult(carRacing.getCars());
         }
