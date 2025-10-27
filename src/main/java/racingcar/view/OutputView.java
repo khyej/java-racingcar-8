@@ -5,6 +5,7 @@ import racingcar.model.Car;
 
 public class OutputView {
     public void displayPlayResultHeader() {
+        System.out.println();
         System.out.println("실행 결과");
     }
 
@@ -12,6 +13,7 @@ public class OutputView {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + formatPlay(car.getPosition()));
         }
+        System.out.println();
     }
 
     public String formatPlay(int position) {
